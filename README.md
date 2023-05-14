@@ -18,7 +18,6 @@ npm install
 npm run dev
 ```
 ## Клиент
-В backend/db.js настроить подключение к PostgreSQL. Запустить backend сервер.
 
 ### Установка
 ```
