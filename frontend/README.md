@@ -1,11 +1,11 @@
-# student-database-vue-client
+# frontend
 
-## Project setup
+## Установка
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Компиляция
 ```
 npm run serve
 ```
@@ -15,5 +15,4 @@ npm run serve
 npm run build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
