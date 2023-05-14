@@ -7,7 +7,7 @@ npm install
 
 ### Скомпилировать для разработки
 ```
-npm run serve
+npm run dev
 ```
 
 
