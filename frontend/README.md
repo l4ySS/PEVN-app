@@ -5,14 +5,7 @@
 npm install
 ```
 
-### Компиляция
+### Скомпилировать для разработки
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-
