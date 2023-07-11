@@ -46,11 +46,12 @@
         >
 
        <!-- <template v-slot:activator="{ props }"><v-btn color="primary" v-bind="props" @click="add = true"> Добавить студента </v-btn></template> -->
-   
+    <v-form ref="addForm">
         <v-card>
         <v-card-title> <span class="text-h5">Добавить запись</span> </v-card-title>
         <v-card-text> <v-container>
             <div class="modal-content">
+             
                 <table><tr>
                     <td>Фамилия: </td> 
                     <td><v-text-field 
@@ -93,6 +94,7 @@
                          ></v-text-field>
                     </td>
                 </tr></table>
+            
             </div>
           </v-container>
         </v-card-text>
@@ -115,7 +117,7 @@
           </v-btn>
         </v-card-actions>
       </v-card>
-
+    </v-form>
     </v-dialog>
 
 
@@ -206,10 +208,13 @@
                 <td>{{student.faculty}}</td>
                 <td>{{student.kurs}}</td>
                 <td>{{student.group}}</td>
-                <td> <v-btn color="blue" x-small dark @click="() => {getStudent(student.stud_id); edit = true}">
+                <td > 
+                  <v-card-actions >
+      
+                    <v-btn color="blue" x-small dark @click="() => {getStudent(student.stud_id); edit = true}">
             <v-icon>mdi-pencil</v-icon>
-            </v-btn><v-btn color="red" x-small dark @click="() => {deleteStudent(student.stud_id)}"><v-icon>mdi-cancel</v-icon></v-btn>
-         
+            </v-btn><v-spacer /><v-btn color="red" x-small dark @click="() => {deleteStudent(student.stud_id)}"><v-icon>mdi-cancel</v-icon></v-btn>
+      </v-card-actions>
           </td>
       
            </tr> 
@@ -254,7 +259,8 @@ export default {
         const student = this.studentToAdd;
         try {
         const response = await axios.post('http://localhost:8082/api/student', student);
-        this.students.push(response.data)
+        this.students.push(response.data);
+        this.$refs.addForm.reset();
         } catch(error){
           this.console.log(error);
         }
